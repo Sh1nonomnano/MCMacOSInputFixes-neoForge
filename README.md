@@ -39,7 +39,7 @@ On platforms other than macOS, the mod does nothing (except the aformentioned me
 
 ## Running
 
-This mod requires Fabric, Fabric loader 0.14.22+, and Minecraft 1.14+. I've only really tested it properly on the major releases, so ymmv if you run it on snapshots, but it probably works.
+This mod requires Fabric, Fabric loader 0.15.0+, and Minecraft 1.14+. I've only really tested it properly on the major releases, so ymmv if you run it on snapshots, but it probably works.
 
 ## Setup
 
