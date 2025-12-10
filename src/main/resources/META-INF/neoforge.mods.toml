@@ -1,0 +1,23 @@
+[[mixins]]
+config = "macos_input_fixes.client.mixins.json"
+
+[[mods]]
+modId = "macos_input_fixes"
+version = "1.0"
+displayName = "MacOS Input Fixes"
+authors = "Hamarb123"
+description = "Fixes Minecraft input issues on macOS."
+
+[[dependencies.macos_input_fixes]]
+    modId = "neoforge"
+    type = "required"
+    versionRange = "[20.1,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.macos_input_fixes]]
+    modId = "minecraft"
+    type = "required"
+    versionRange = "[1.20.1,)"
+    ordering = "NONE"
+    side = "BOTH"
