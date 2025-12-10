@@ -1,4 +1,7 @@
-# MacOS Input Fixes
+# MacOS Input Fixes (NeoForge)
+
+Original author: [Hamarb123](https://github.com/Hamarb123)
+Migrated to NeoForge by Jules.
 
 ## What it does
 
@@ -31,62 +34,22 @@ Menu Options (under Mouse Settings Screen):
 
 On platforms other than macOS, the mod does nothing (except the aformentioned menu options), so it can be safely included in any modpack.
 
-## Links
-
-- [Modrinth](https://modrinth.com/mod/macos-input-fixes)
-- [CurseForge](https://www.curseforge.com/minecraft/mc-mods/macos-input-fixes)
-- [PayPal](https://www.paypal.com/donate/?hosted_button_id=9MTL4PHHPLHY4)
-
 ## Running
 
-This mod requires Fabric, Fabric loader 0.15.0+, and Minecraft 1.14+. I've only really tested it properly on the major releases, so ymmv if you run it on snapshots, but it probably works.
-
-## Setup
-
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+This mod requires **NeoForge** and Minecraft 1.20+.
+Note: While the codebase aims to support modern Minecraft versions, binary compatibility across major versions (e.g. 1.20.1 vs 1.21.4) requires separate builds due to Java version differences (Java 17 vs Java 21) and NeoForge API changes.
 
 ## Building
 
-To build this, you also need to build the native file before building the mod itself any time you modify it. This can only be done on macOS and requires Apple's XCode (or command line-tools) to be installed on the machine. To build the native library, simply run `make clean && make` in the `src/main/native` directory. This should work on both intel and arm machines, but I've only tested in on an intel machine. The resulting binary supports both x64 and arm64, so no need to worry about the architecture of the native.
+To build this, you also need to build the native file before building the mod itself any time you modify it. This can only be done on macOS and requires Apple's XCode (or command line-tools) to be installed on the machine. To build the native library, simply run `make clean && make` in the `src/main/native` directory. This should work on both intel and arm machines. The resulting binary supports both x64 and arm64.
 
-## Testing
-
-If you make changes, you should test everything works properly on the following versions at least:
-- 1.14
-- 1.15
-- 1.16
-- 1.16.2
-- 1.17
-- 1.18
-- 1.19
-- 1.19.3
-- 1.20
-- 1.21
-- 1.21.2
-- 1.21.5
-- 1.21.9
-
-## Mixin Naming Scheme
-
-Some mixins are in a folder called `gui`, these mixins are to do with the option menu interface, or only used by other option menu interface code. Some mixins have a number at the end of their name, these mixins are conditionally loaded based on whether certain classes are available at runtime. The numbering is currently as follows (note some of the classes may have different names in different intermediary mappings, consult the latest applicable version if you can't find the class):
-1. The `SimpleOption` class is available (1.19+)
-2. The `Option` class is available (1.14-1.18.x)
-3. The `CyclingButtonWidget` class is available (1.17+)
-4. Both the `Option` and `CyclingButtonWidget` classes are available (1.17-1.18.x)
-5. The `GameOptionsScreen.getHoveredButtonTooltip(ButtonListWidget, int, int)` function exists (1.16.2-1.19.2)
-6. The `GameOptionsScreen.getHoveredButtonTooltip(ButtonListWidget, int, int)` function doesn't exist, the `Screen.renderTooltip(MatrixStack, List, int, int)` function exists, and the `Option` class exists (1.16-1.16.1)
-7. Either 5 or 6 (1.16-1.19.2)
-8. 1 and doesn't have `MouseOptionsScreen.init()` (1.21+)
-9. 1 and has `MouseOptionsScreen.init()` (1.19-1.20.x)
-10. Has `PlayerInventory.scrollInHotbar(double)` (1.14-1.21.1)
-11. Doesn't have `PlayerInventory.scrollInHotbar(double)` (1.21.2+)
-12. Has `Screen.hasControlDown()` /  doesn't have `KeyInput` (1.14-1.21.8)
-13. Doesn't have `Screen.hasControlDown()` / has `KeyInput` (1.21.9+)
+To build the mod jar, run:
+```bash
+./gradlew build
+```
 
 ## License
 
 This project is available under the BSD-3-Clause license.
 
 Some files and/or folders may be under different license(s), please check any relevant files and folders to see if they are under a different license.
-
-If you are Mojang, feel free to contact about licensing to possibly license the project under a different license if BSD-3-Clause doesn't work for you.
